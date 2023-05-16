@@ -25,6 +25,10 @@
       packages = [
         python
       ];
+
+      shellHook = ''
+        ${config.pre-commit.installationScript}
+      '';
     };
   };
 }
