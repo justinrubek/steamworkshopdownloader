@@ -17,6 +17,11 @@
     );
     python = pkgs.python3.withPackages python-packages;
   in {
+    _module.args.pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
     packages = {
       inherit python;
     };
@@ -24,6 +29,7 @@
     devShells.default = pkgs.mkShell rec {
       packages = [
         python
+        pkgs.steamcmd
       ];
 
       shellHook = ''
