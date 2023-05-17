@@ -29,6 +29,8 @@
       shellHook = ''
         ${config.pre-commit.installationScript}
       '';
+
+      TK_LIBRARY = "${pkgs.tk}/lib/${pkgs.tk.libPrefix}";
     };
   };
 }
